@@ -3,19 +3,19 @@ Create an assembly sbt task on IntelliJ or run sbt assembly command.
 sbt assembly
 ```
 
-##Running SparkNLP Annotators with spark-submit
+Running SparkNLP Annotators with spark-submit:
 
 Run NER Pipeline
 ```
 ./run_nlp_pipeline.sh ~/jars/scala-spikes-assembly-0.1.jar NER ~/datasets/test_docs.csv ~/ner
 ```
 
-Run BERT Embeddings Pipeline
+Run BERT Embeddings Pipeline:
 ```
 ./run_nlp_pipeline.sh ~/jars/scala-spikes-assembly-0.1.jar BERT ~/models/tmp_bert_base_cased_pt
 ```
 
-##Running on GCP
+Running on GCP
 
 Clusters are located in:
 BIGDATA --> Dataptoc --> Clusters
