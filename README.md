@@ -31,7 +31,7 @@ Run NER Pipeline
 ./run_nlp_pipeline.sh ~/jars/scala-spikes-assembly-0.1.jar NER ~/datasets/test_docs.csv ~/ner
 ```
 
-Run BERT Embeddings Pipeline
+Run BERT Embeddings Pipeline:
 ```
 ./run_nlp_pipeline.sh ~/jars/scala-spikes-assembly-0.1.jar BERT ~/models/tmp_bert_base_cased_pt
 ```
