@@ -11,6 +11,7 @@ object ProcessDocuments {
       case "NER" => processNERPipeline(args(1), args.last)
       case "BERT" => processBertEmbeddingsPipeline(args(1))
       case "CONTEXT-SPELL" => trainContextSpell()
+      case "TOKENIZER" => processTokenizerPipeline()
       case _ => throw new UnsupportedOperationException(s"NLP Pipeline $nlpPipeline not supported")
     }
 
@@ -33,6 +34,12 @@ object ProcessDocuments {
     val spark: SparkSession = ResourceHelper.spark
     val contextSpellChecker = new ContextSpellChecker(spark)
     contextSpellChecker.training()
+  }
+
+  private def processTokenizerPipeline(): Unit = {
+    val spark: SparkSession = ResourceHelper.spark
+    val tokenizerPipeline = new TokenizerPipeline("Hello world", spark)
+    tokenizerPipeline.annotateTokens()
   }
 
 }

@@ -20,7 +20,7 @@ class BertEmbeddings(spark: SparkSession) {
       .setInputCols("document", "token")
       .setOutputCol("bert")
       .setCaseSensitive(true)
-      .setDeepLearningEngine("pytorch")
+      //.setDeepLearningEngine("pytorch")
 
     val pipeline = new Pipeline().setStages(Array(documentAssembler, tokenizer, bertLoaded))
     val resultDataFrame = pipeline.fit(dataFrame).transform(dataFrame)

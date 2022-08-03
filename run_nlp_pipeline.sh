@@ -6,6 +6,7 @@ NLP_PIPELINE=$2
 NER="NER"
 BERT_EMBEDDINGS="BERT"
 CONTEXT_SPELL="CONTEXT-SPELL"
+TOKENIZER="TOKENIZER"
 
 if [ "$NLP_PIPELINE" == "$NER" ]
   then
@@ -32,6 +33,16 @@ if [ "$NLP_PIPELINE" == "$BERT_EMBEDDINGS" ]
 fi
 
 if [ "$NLP_PIPELINE" == "$CONTEXT_SPELL" ]
+then
+  sh "$SPARK_HOME"/bin/spark-submit \
+        --master local[*] \
+        --driver-memory 5g \
+        --class com.pipeline.nlp.ProcessDocuments \
+        "$JAR_PATH" \
+        "$NLP_PIPELINE"
+fi
+
+if [ "$NLP_PIPELINE" == "$TOKENIZER" ]
 then
   sh "$SPARK_HOME"/bin/spark-submit \
         --master local[*] \
