@@ -1,5 +1,7 @@
 package com.pipeline.nlp
 
+import com.johnsnowlabs.nlp.{Annotation, LightPipeline}
+import com.johnsnowlabs.nlp.pretrained.PretrainedPipeline
 import com.johnsnowlabs.nlp.util.io.ResourceHelper
 import org.apache.spark.sql.SparkSession
 
@@ -12,6 +14,11 @@ object ProcessDocuments {
       case "BERT" => processBertEmbeddingsPipeline(args(1))
       case "CONTEXT-SPELL" => trainContextSpell()
       case "TOKENIZER" => processTokenizerPipeline()
+      case "LIGHT" => {
+        val pipelineModel = new PretrainedPipeline("explain_document_ml", "en")
+        val result = pipelineModel.annotate("This is an example")
+        println(result)
+      }
       case _ => throw new UnsupportedOperationException(s"NLP Pipeline $nlpPipeline not supported")
     }
 

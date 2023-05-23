@@ -7,9 +7,10 @@ scalaVersion := "2.12.15"
 val sparkVer = "3.0.2"
 
 lazy val sparkDependencies = Seq(
-  "com.johnsnowlabs.nlp" %% "spark-nlp" % "4.0.2",
+  "com.johnsnowlabs.nlp" %% "spark-nlp" % "4.2.6",
   "org.apache.spark" %% "spark-core" % sparkVer,
   "org.apache.spark" %% "spark-mllib" % sparkVer,
+  "org.apache.hadoop" % "hadoop-aws" % "3.2.1"
 )
 
 lazy val testDependencies = Seq("org.scalatest" %% "scalatest" % "3.2.9" % "test")
